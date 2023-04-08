@@ -37,7 +37,7 @@ const Form = () => {
           toast.error('Error occurred while sending email');
           });
     } else {
-      toast.error('Please fill in the fields.');
+      toast.error('Please fill in the fields. ');
     }
   };
 
