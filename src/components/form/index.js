@@ -1,63 +1,70 @@
-import React from 'react'
+import React ,  { useRef } from 'react'
 import "./style.css"
-import { useForm } from "react-hook-form"
+import emailjs from '@emailjs/browser'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Form = () => {
 
-  const {register, formState: {errors}, handleSubmit} = useForm()
+  const form = useRef();
+
+  const validateForm = (data) => {
+      let name = data[0].value
+      let email = data[1].value
+      let subject = data[2].value
+      let message = data[3].value
+      if (name && email && subject && message) {
+        return true
+      }
+      return false
+  }
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    let data = form.current
+    let result = validateForm(data)
+    if (result) {
+      emailjs.sendForm('service_bit6s7b', 'template_w8j5ah5', form.current, 'DzCuNLgK3nARxJMuL')
+      .then((result) => {
+        toast.success('Email sent successfully.', {
+          });
+          console.log(result.text);
+          console.log("Message sent.")
+      }, (error) => {
+          console.log(error.text);
+          console.log("Error while sending mail !")
+          toast.error('Error occurred while sending email');
+          });
+    } else {
+      toast.error('Please fill in the fields.');
+    }
+  };
 
   return (
     <div className="form">
-        <form autoComplete='off' onSubmit={handleSubmit((data) => console.log(data))}>
+      <ToastContainer/>
+        <form autoComplete='off' ref={form} onSubmit={sendEmail}>
             <label>Your Name</label>
-            <input {...register("name", {
-              required: "Name is required",
-              minLength: {
-                value: 3,
-              },
-              maxLength: {
-                value: 30,
-              }
-            })} 
-            type="text"
-            placeholder={errors.name?.message}
+            <input
+              type="text"
+              name='user_name'
             />
             <label>Email</label>
-            <input  {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: "Email must me valid"
-              }
-            })} 
-            type="text"
-            placeholder={errors.email?.message}
+            <input  
+              type="email"
+              name='user_email'
             />
             <label>Subject</label>
-            <input  {...register("subject", {
-                 required: "Subject is required",
-                 minLength: {
-                   value: 5,
-                 },
-                 maxLength: {
-                   value: 40,
-                 }
-            })} 
-            type="text" 
-            placeholder={errors.subject?.message}
+            <input  
+              type="text" 
+              name='subject'
             />
             <label>Message</label>
-            <textarea  {...register("message", {
-                   required: "Mesage is required",
-                   minLength: {
-                     value: 10,
-                   },
-                   maxLength: {
-                     value: 400,
-                   }
-            })} 
-            rows="6" 
-            placeholder={errors.message?.message}/>
+            <textarea  
+              rows="6" 
+              name='message'
+            />
             <button className='btn' type='submit'>SUBMIT</button>
         </form>
     </div>
