@@ -10,10 +10,14 @@ const AboutContent = () => {
     <div className="about">
         <div className="left">
             <h1>Who Am I ?</h1>
-            <p>I am a Java Developer. I create 
-               backend and batch projects which have 
-               rest and micro service based.
+            <p>I work as Java Developer about 3 years. I develope full 
+               stack micro service applications which are
+               restful based. Also i write simple web pages 
+               with React JS. 
             </p>
+            <h1>Job Experinces</h1>
+            <p> Proto Yazilim A.S - 17 August 2020 - 5 March 2023 </p>
+            <p> Metasis Technology - 13 March 2023 - Now </p>
             <Link to="/contact">
               <button className='btn btn-light'>Contact</button>
             </Link>

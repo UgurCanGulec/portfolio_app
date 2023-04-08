@@ -33,7 +33,7 @@
 }
 
 .btc{
-   font-size: 4rem;
+   font-size: 2rem;
    font-weight: 600;
    padding: 1rem 0; 
 }
@@ -57,4 +57,18 @@
         margin: auto;
         grid-template-columns: 1fr;
     }
+}
+
+.heading{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+}
+
+.card-data{
+    padding-bottom: 3rem;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import Portfolio from '../components/porfolio'
-import PricingCard from '../components/pricingcard'
+import CodeCard from '../components/codecard'
 import WorkData from '../components/work'
 
 const Project = () => {
@@ -10,11 +10,11 @@ const Project = () => {
     <div>
       <Navbar />
       <Portfolio 
-        heading="PROJECTS." 
-        text="Some of my recent works"
+        heading="ARTICLES." 
+        text="Some of my recent works and articles."
       />
       <WorkData />
-      <PricingCard/>
+      <CodeCard heading="Projects"/>
       <Footer />
     </div>
   )
