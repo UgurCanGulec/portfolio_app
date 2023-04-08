@@ -2,7 +2,7 @@ import React from 'react'
 import "./style.css"
 import { Link } from "react-router-dom"
 import React1 from "../../assets/react1.jpg"
-import React2 from "../../assets/react2.webp"
+import JavaImg from "../../assets/java.jpg"
 
 
 const AboutContent = () => {
@@ -24,7 +24,7 @@ const AboutContent = () => {
                     <img src={React1} alt="true" className='img'/>
                 </div>
                 <div className="img-stack bottom">
-                    <img src={React2} alt="true" className='img'/>
+                    <img src={JavaImg} alt="true" className='img'/>
                 </div>
             </div> 
         </div>

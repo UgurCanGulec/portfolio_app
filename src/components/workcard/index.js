@@ -2,7 +2,7 @@ import React from 'react'
 import "./style.css"
 import { NavLink } from 'react-router-dom'
 
-const WorkCard = ({imgsrc, title, text, view}) => {
+const WorkCard = ({imgsrc, title, text, view, source}) => {
   return (
     <div className="project-card">
     <img src={imgsrc} alt="img" />
@@ -13,7 +13,7 @@ const WorkCard = ({imgsrc, title, text, view}) => {
         <NavLink to={view} className="btn">
           View
         </NavLink>
-        <NavLink to="/contact" className="btn">
+        <NavLink to={source} className="btn">
           Source
         </NavLink>
       </div>
