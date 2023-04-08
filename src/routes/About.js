@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <Portfolio heading="ABOUT" text="I'am a friendly Java Developer"/>
+      <Portfolio heading="ABOUT" text="I'am a creative Java Developer"/>
       <AboutContent />
       <Footer />
     </div>
